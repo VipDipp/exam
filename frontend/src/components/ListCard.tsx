@@ -3,7 +3,7 @@ import { deleteList, updateList } from '../api/api'
 import rename from '../public/rename.svg'
 import trash from '../public/trash.svg'
 
-const ListCard: React.FC<any> = ({id}) => {
+const ListCard: React.FC<any> = ({id, setIsOpen}) => {
   const [newName, setNewName] = useState('')
   const [renameList, isRenameList] = useState(false)
   return (
@@ -14,7 +14,10 @@ const ListCard: React.FC<any> = ({id}) => {
         {renameList ?
         <div className='flex flex-row items-center w-full h-1/3'>
             <input className='w-3/4' placeholder='New name' onChange={(e) => setNewName(e.target.value)}/>
-            <a className='w-1/4 text-base border-gray-200 border' onClick={async() => await updateList(newName, id)}>Rename</a>
+            <a className='w-1/4 text-base border-gray-200 border' onClick={async() => {
+              await updateList(newName, id)
+              setIsOpen(false)
+              }}>Rename</a>
         </div>
         :
         <div 

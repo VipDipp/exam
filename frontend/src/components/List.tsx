@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { deleteList } from '../api/api'
 import ryska from '../public/ryska.svg'
 import trash from '../public/trash.svg'

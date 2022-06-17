@@ -1,4 +1,3 @@
-import React from 'react'
 import profile from '../public/profile.svg'
 import logout from '../public/logout.svg'
 import { SignOut } from '../api/api'

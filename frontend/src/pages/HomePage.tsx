@@ -10,11 +10,8 @@ import NavCard from '../components/NavCard'
 
 const HomePage = () => {
   const [profileOpen, setProfileOpen] = useState(false)
-  const [clicked, setClicked] = useState(false)
   const [listId, setListId] = useState(0)
   const [listName, setListName] = useState('')
-  const [taskId, setTaskId] = useState()
-  const [listPicked, setListPicked] = useState(false)
   const [isOpen, setIsOpen] = useState(false)
   const [isOptionsOpen, setIsOptionsOpen] = useState(false)
 
@@ -32,7 +29,6 @@ const HomePage = () => {
       onClick={() => {
         if (profileOpen) { setProfileOpen(false) }
         if (isOpen) { setIsOpen(false)}
-        if (isOptionsOpen) { setIsOptionsOpen(false)}
       }}
       className='flex w-full h-full flex-col flex-auto'
       >

@@ -1,4 +1,4 @@
-import React, { useReducer, useState } from 'react'
+import { useState } from 'react'
 import SignUp, { SignIn } from '../api/api'
 import { useUserContext } from '../App'
 import SignForm from '../components/SignForm'

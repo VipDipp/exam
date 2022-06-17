@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react'
-import { addList, getLists } from '../api/api'
+import React, { useState } from 'react'
+import { addList } from '../api/api'
 import plus from '../public/plus.svg'
 import List from './List'
 

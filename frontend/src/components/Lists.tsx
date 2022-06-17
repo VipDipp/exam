@@ -34,7 +34,7 @@ const Lists: React.FC<any> = ({id ,name, isOpen, setIsOpen}) => {
         :
         <div className="flex flex-row w-full">
             {isOpen ?
-                <ListCard id={id}/>
+                <ListCard id={id} setIsOpen={setIsOpen}/>
                 :
                 null
             }

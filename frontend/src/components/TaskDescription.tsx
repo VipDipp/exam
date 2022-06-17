@@ -16,13 +16,6 @@ const TaskDescription: React.FC<any> = ({taskName, taskId, taskDescription, task
     const dTask = async() => {
         await deleteTask(listId, taskId)
     }
-    useEffect(() => {
-      /*setDescription(taskDescription)
-      setName(taskName)
-      setStatus(taskStatus)*/
-      console.log(taskId)
-    }, [taskId])
-    
 
   return (
     <div className='w-1/3 bg-yellow-400 ml-auto flex flex-col rightnav'>

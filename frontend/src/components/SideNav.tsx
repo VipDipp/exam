@@ -6,11 +6,8 @@ import globe from '../public/globe.svg'
 import adjustments from '../public/adjustments.svg'
 import styles from '../styles/custom.module.css'
 import NewList from './NewList'
-import ryska from '../public/ryska.svg'
-import trash from '../public/trash.svg'
-import { deleteList, getLists } from '../api/api'
+import { getLists } from '../api/api'
 import List from './List'
-import NavCard from './NavCard'
 
 
 const SideNav: React.FC<any> = ({setListId, setListName, setIsOpen}) => {
@@ -28,20 +25,18 @@ const SideNav: React.FC<any> = ({setListId, setListName, setIsOpen}) => {
     getHandler()
   }, [])
   return (
-    
     <div className='bg-yellow-400 h-screen w-1/5 block'>
         <img src={logo} className='ml-2 mt-2'/>
         <div className={styles.sidenav}>
             <img className='w-6 cursor-pointer' src={trykutnyk} onClick={() => {setNavOpen(false)}}/>
             
             {  
-                    (!Array.isArray(lists)) ?
-                        null
-                    :
-                        lists.map((list) => {
-                            return <List id={list[1].Id} name={list[1].Name} setId={setListId} setName={setListName} setDeleted={setIsDelete}/>
-                        })
-                             
+                (!Array.isArray(lists)) ?
+                    null
+                :
+                lists.map((list) => {
+                    return <List id={list[1].Id} name={list[1].Name} setId={setListId} setName={setListName} setDeleted={setIsDelete}/>
+                })       
             }
             
             <NewList setId={setListId} setName={setListName} chosen={chosen} setChosen={setChosen}/>
