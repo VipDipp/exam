@@ -3,8 +3,7 @@ import { addList, getLists } from '../api/api'
 import plus from '../public/plus.svg'
 import List from './List'
 
-const NewList: React.FC<any> = ({setId, setName}) => {
-  const [chosen, setChosen] = useState(false)
+const NewList: React.FC<any> = ({setId, setName, chosen, setChosen}) => {
   const [list, setList] = useState('')
   const [newLists, setNewLists] = useState([{}])
   return (
@@ -25,17 +24,16 @@ const NewList: React.FC<any> = ({setId, setName}) => {
                 onClick={async () => {
                     await addList(list).then((res: any) => {
                         setNewLists(newLists => [...newLists, [res.data.Id, res.data.Name, setId]])
-                        console.log(newLists)
-                        console.log(res.data)}
+                        }
                         )
                     setChosen(false)
                 }}
                 >Add</button>
             </div>
             :
-            <div className='flex flex-row'>
-                <img className='w-6 cursor-pointer' onClick={() => {setChosen(true)}} src={plus} />
-                <a className='ml-4 text-xl cursor-pointer' onClick={() => {setChosen(true)}}>New list</a>
+            <div className='flex flex-row cursor-pointer hover:bg-yellow-300 mr-5' onClick={() => {setChosen(true)}}>
+                <img className='w-6' src={plus} />
+                <a className='ml-4 text-xl'>New list</a>
             </div>
             }
         </>

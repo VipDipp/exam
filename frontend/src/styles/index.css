@@ -4,7 +4,7 @@
 
 .signform > * {
     margin-left: 3rem;
-    margin-top: 1rem;
+    margin-top: 0.5rem;
     width: 85%;
     height: 15%;
 }
@@ -41,5 +41,9 @@
 
 .newLists > * {
     margin-bottom: 1rem;
+}
+
+.rightnav {
+    height: 42rem;
 }
 

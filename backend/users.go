@@ -52,6 +52,12 @@ type CreateListParameters struct {
 	List_name string `json:"list_name"`
 }
 
+type UpdateTaskParameters struct {
+	Task_name        string `json:"task_name"`
+	Task_status      string `json:"task_status"`
+	Task_description string `json:"task_description"`
+}
+
 type CreateTaskParameters struct {
 	Task_name        string `json:"task_name"`
 	Task_description string `json:"task_description"`

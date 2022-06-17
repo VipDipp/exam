@@ -67,8 +67,17 @@ export async function addList(list_name: string) {
   }
 }
 
-export async function updateList(name: string,id: number) {
-  
+export async function updateList(list_name: string,id: number) {
+  setUpBearerHeader(axios)
+  try {
+    const response = await axios.put('/todo/lists/' + id, {
+      list_name
+    })
+    console.log(response)
+  } catch(err) {
+    console.log(err);
+    return false;
+  }
 }
 
 export async function deleteList(id: number) {
@@ -93,20 +102,54 @@ export async function getLists() {
   
 }
 
-export async function addTask(name: string) {
-
+export async function addTask(task_name: string, id: number) {
+  setUpBearerHeader(axios)
+  try {
+    const response = await axios.post('/todo/lists/' + id + '/tasks', {
+        task_name
+    })
+    console.log(response)
+    return response
+  } catch(err) {
+    console.log(err);
+    return false;
+  }
 }
 
-export async function updateTask(name: string,id: number) {
-
+export async function updateTask(task_name: string, task_status: string, task_description: string, id: number, taskId: number) {
+  setUpBearerHeader(axios)
+  try {
+    const response = await axios.put('/todo/lists/' + id + '/tasks/' + taskId, {
+      task_name,
+      task_status, 
+      task_description
+    })
+    console.log(response)
+  } catch(err) {
+    console.log(err);
+    return false;
+  }
 }
 
-export async function deleteTask(id: number) {
-
+export async function deleteTask(id: number, taskId: number) {
+  setUpBearerHeader(axios)
+  try {
+    const response = await axios.delete('/todo/lists/' + id + '/tasks/' + taskId, {})
+    console.log(response)
+  } catch(err) {
+    console.log(err);
+    return false;
+  }
 } 
 
-export async function getTasks() {
-
+export async function getTasks(id:number) {
+  setUpBearerHeader(axios)
+  try {
+    return (await (await axios.get('/todo/lists/' + id + '/tasks', {})).data)
+  } catch(err) {
+    console.log(err);
+    return false;
+  }
 }
 
 export default SignUp

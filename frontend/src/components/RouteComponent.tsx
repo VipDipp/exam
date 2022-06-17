@@ -1,10 +1,11 @@
 import { useEffect, useState } from 'react';
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router-dom';
+import { useUserContext } from '../App';
 import HomePage from '../pages/HomePage';
 import SignPage from '../pages/SignPage';
 
 const RouteComponent = () => {
-    const [loggedIn, setLoggedIn] = useState(false)
+    const {loggedIn, setLoggedIn} = useUserContext()
     useEffect(() => {
       localStorage.jwt ? setLoggedIn(true) : setLoggedIn(false)
     }, [localStorage.jwt])

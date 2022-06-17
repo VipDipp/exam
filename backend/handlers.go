@@ -85,7 +85,7 @@ func newTaskHandler(w http.ResponseWriter, r *http.Request, u User, users UserRe
 }
 
 func updateTaskHandler(w http.ResponseWriter, r *http.Request, u User, users UserRepository) {
-	params := &CreateTaskParameters{}
+	params := &UpdateTaskParameters{}
 	err := json.NewDecoder(r.Body).Decode(params)
 	if err != nil {
 		handleError(errors.New("could not read params"), w)
@@ -99,6 +99,7 @@ func updateTaskHandler(w http.ResponseWriter, r *http.Request, u User, users Use
 	task := globalTodos.Todos[u.Id].Lists[list_id].Tasks[task_id]
 	task.Name = params.Task_name
 	task.Description = params.Task_description
+	task.Status = params.Task_status
 	globalTodos.Todos[u.Id].Lists[list_id].Tasks[task_id] = task
 
 	res, _ := json.Marshal(task)
